@@ -17,7 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Allow the Vite dev server (port 5173) and any localhost origin
+        $middleware->statefulApi();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
 
